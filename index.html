@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faizan Online Academy - Time Converter</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⏰</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <img src="https://scontent.fkhi30-1.fna.fbcdn.net/v/t39.30808-6/481700193_1066516178841315_4773084065509239283_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=mzgxXAX8LMsQ7kNvwGuYGsA&_nc_oc=Adl7NaHzVvSVOcZCTyMblmWTbs_3_V7Z7wyOxdRfWdRcVb36TnjPUB_bUQxVP84aM8g&_nc_zt=23&_nc_ht=scontent.fkhi30-1.fna&_nc_gid=Fhw-fpXGgyYK9Ym8nOm9zw&oh=00_Afq24W0CYwAVoWsDCbB2e1B1ZoO1ZNI5gLlgK5koReuyrA&oe=6965A297" alt="" 
+                    width="70">
+                </div>
+                <div class="logo-text">
+                    <h1>Faizan Online Academy</h1>
+                    <p class="dawa-text">Global Time Converter</p>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Converter Container -->
+            <div class="converter-container">
+                <!-- Source Panel -->
+                <div class="panel source-panel">
+                    <div class="panel-header">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h2>Source Time</h2>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <i class="fas fa-globe"></i>
+                            Select Country
+                        </label>
+                        <div class="custom-dropdown" id="source-dropdown">
+                            <div class="dropdown-selected">
+                                <span class="flag">🇵🇰</span>
+                                <span class="country-name">Pakistan</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="dropdown-options">
+                                <div class="search-container">
+                                    <i class="fas fa-search"></i>
+                                    <input type="text" id="source-search" placeholder="Search countries...">
+                                </div>
+                                <div class="options-list" id="source-options"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="time-input-section">
+                        <label>
+                            <i class="far fa-clock"></i>
+                            Enter Time
+                        </label>
+                        <div class="time-inputs">
+                            <div class="time-input">
+                                <select id="source-hours">
+                                    <!-- Hours populated by JS -->
+                                </select>
+                                <span class="time-label">Hour</span>
+                            </div>
+                            <div class="time-input">
+                                <select id="source-minutes">
+                                    <!-- Minutes populated by JS -->
+                                </select>
+                                <span class="time-label">Minute</span>
+                            </div>
+                            <div class="time-input">
+                                <select id="source-am-pm">
+                                    <option value="AM">AM</option>
+                                    <option value="PM">PM</option>
+                                </select>
+                                <span class="time-label">AM/PM</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="current-time-display">
+                        <div class="current-time-label">
+                            <i class="fas fa-clock"></i>
+                            Current Time in Source
+                        </div>
+                        <div class="current-time-value" id="source-current-time">Loading...</div>
+                    </div>
+                </div>
+                
+                <!-- Swap Button -->
+                <div class="swap-container">
+                    <button class="swap-button" id="swap-button">
+                        <i class="fas fa-exchange-alt"></i>
+                    </button>
+                    <div class="swap-label">Swap</div>
+                </div>
+                
+                <!-- Target Panel -->
+                <div class="panel target-panel">
+                    <div class="panel-header">
+                        <i class="fas fa-flag"></i>
+                        <h2>Target Time</h2>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <i class="fas fa-globe"></i>
+                            Select Country
+                        </label>
+                        <div class="custom-dropdown" id="target-dropdown">
+                            <div class="dropdown-selected">
+                                <span class="flag">🇬🇧</span>
+                                <span class="country-name">United Kingdom</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="dropdown-options">
+                                <div class="search-container">
+                                    <i class="fas fa-search"></i>
+                                    <input type="text" id="target-search" placeholder="Search countries...">
+                                </div>
+                                <div class="options-list" id="target-options"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-display">
+                        <div class="result-header">
+                            <i class="fas fa-clock"></i>
+                            Converted Time
+                        </div>
+                        <div class="converted-time">
+                            <div class="time-display" id="target-time-display">--:-- --</div>
+                            <div class="time-difference" id="time-difference">
+                                <i class="fas fa-hourglass-half"></i>
+                                <span>Time Difference: <span id="difference-value">+0:00</span> hours</span>
+                            </div>
+                        </div>
+                        
+                        <div class="additional-info">
+                            <div class="info-box">
+                                <i class="far fa-calendar-alt"></i>
+                                <div>
+                                    <div class="info-label">Date Status</div>
+                                    <div class="info-value" id="date-status">Same day</div>
+                                </div>
+                            </div>
+                            <div class="info-box">
+                                <i class="fas fa-sun"></i>
+                                <div>
+                                    <div class="info-label">Day/Night</div>
+                                    <div class="info-value" id="day-night">Daytime</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="current-time-display">
+                        <div class="current-time-label">
+                            <i class="fas fa-clock"></i>
+                            Current Time in Target
+                        </div>
+                        <div class="current-time-value" id="target-current-time">Loading...</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Popular Time Zones -->
+            <div class="popular-times-section">
+                <div class="section-header">
+                    <i class="fas fa-globe-europe"></i>
+                    <h3>Popular Time Zones to Pakistan</h3>
+                </div>
+                
+                <div class="popular-grid" id="popular-grid">
+                    <!-- Filled by JavaScript -->
+                </div>
+            </div>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© 2026 Faizan Online Academy - DawateIslami</p>
+            <p>Global Time Converter Tool</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
