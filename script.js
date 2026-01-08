@@ -1,23 +1,83 @@
-// Country data with timezones and flags
+// Country data with flag codes for flag-icon-css
 const countries = [
-    { name: "Pakistan", timezone: "Asia/Karachi", flag: "🇵🇰" },
-    { name: "United Kingdom", timezone: "Europe/London", flag: "🇬🇧" },
-    { name: "United States (New York)", timezone: "America/New_York", flag: "🇺🇸" },
-    { name: "United States (Los Angeles)", timezone: "America/Los_Angeles", flag: "🇺🇸" },
-    { name: "India", timezone: "Asia/Kolkata", flag: "🇮🇳" },
-    { name: "Australia (Sydney)", timezone: "Australia/Sydney", flag: "🇦🇺" },
-    { name: "Germany", timezone: "Europe/Berlin", flag: "🇩🇪" },
-    { name: "France", timezone: "Europe/Paris", flag: "🇫🇷" },
-    { name: "Japan", timezone: "Asia/Tokyo", flag: "🇯🇵" },
-    { name: "China", timezone: "Asia/Shanghai", flag: "🇨🇳" },
-    { name: "Saudi Arabia", timezone: "Asia/Riyadh", flag: "🇸🇦" },
-    { name: "United Arab Emirates", timezone: "Asia/Dubai", flag: "🇦🇪" },
-    { name: "Turkey", timezone: "Europe/Istanbul", flag: "🇹🇷" },
-    { name: "South Korea", timezone: "Asia/Seoul", flag: "🇰🇷" },
-    { name: "Singapore", timezone: "Asia/Singapore", flag: "🇸🇬" }
+    { name: "Pakistan", timezone: "Asia/Karachi", flag: "pk" },
+    { name: "United Kingdom", timezone: "Europe/London", flag: "gb" },
+    { name: "United States (New York)", timezone: "America/New_York", flag: "us" },
+    { name: "United States (Los Angeles)", timezone: "America/Los_Angeles", flag: "us" },
+    { name: "United States (Chicago)", timezone: "America/Chicago", flag: "us" },
+    { name: "United States (Denver)", timezone: "America/Denver", flag: "us" },
+    { name: "India", timezone: "Asia/Kolkata", flag: "in" },
+    { name: "Australia (Sydney)", timezone: "Australia/Sydney", flag: "au" },
+    { name: "Australia (Melbourne)", timezone: "Australia/Melbourne", flag: "au" },
+    { name: "Australia (Perth)", timezone: "Australia/Perth", flag: "au" },
+    { name: "Germany", timezone: "Europe/Berlin", flag: "de" },
+    { name: "France", timezone: "Europe/Paris", flag: "fr" },
+    { name: "Japan", timezone: "Asia/Tokyo", flag: "jp" },
+    { name: "China", timezone: "Asia/Shanghai", flag: "cn" },
+    { name: "Saudi Arabia", timezone: "Asia/Riyadh", flag: "sa" },
+    { name: "United Arab Emirates", timezone: "Asia/Dubai", flag: "ae" },
+    { name: "Turkey", timezone: "Europe/Istanbul", flag: "tr" },
+    { name: "South Korea", timezone: "Asia/Seoul", flag: "kr" },
+    { name: "Singapore", timezone: "Asia/Singapore", flag: "sg" },
+    { name: "Canada (Toronto)", timezone: "America/Toronto", flag: "ca" },
+    { name: "Canada (Vancouver)", timezone: "America/Vancouver", flag: "ca" },
+    { name: "Brazil (São Paulo)", timezone: "America/Sao_Paulo", flag: "br" },
+    { name: "Mexico", timezone: "America/Mexico_City", flag: "mx" },
+    { name: "Russia (Moscow)", timezone: "Europe/Moscow", flag: "ru" },
+    { name: "Italy", timezone: "Europe/Rome", flag: "it" },
+    { name: "Spain", timezone: "Europe/Madrid", flag: "es" },
+    { name: "Portugal", timezone: "Europe/Lisbon", flag: "pt" },
+    { name: "Netherlands", timezone: "Europe/Amsterdam", flag: "nl" },
+    { name: "Switzerland", timezone: "Europe/Zurich", flag: "ch" },
+    { name: "Sweden", timezone: "Europe/Stockholm", flag: "se" },
+    { name: "Norway", timezone: "Europe/Oslo", flag: "no" },
+    { name: "Denmark", timezone: "Europe/Copenhagen", flag: "dk" },
+    { name: "Finland", timezone: "Europe/Helsinki", flag: "fi" },
+    { name: "Poland", timezone: "Europe/Warsaw", flag: "pl" },
+    { name: "Czech Republic", timezone: "Europe/Prague", flag: "cz" },
+    { name: "Austria", timezone: "Europe/Vienna", flag: "at" },
+    { name: "Greece", timezone: "Europe/Athens", flag: "gr" },
+    { name: "Thailand", timezone: "Asia/Bangkok", flag: "th" },
+    { name: "Vietnam", timezone: "Asia/Ho_Chi_Minh", flag: "vn" },
+    { name: "Philippines", timezone: "Asia/Manila", flag: "ph" },
+    { name: "Indonesia (Jakarta)", timezone: "Asia/Jakarta", flag: "id" },
+    { name: "Malaysia", timezone: "Asia/Kuala_Lumpur", flag: "my" },
+    { name: "New Zealand", timezone: "Pacific/Auckland", flag: "nz" },
+    { name: "South Africa", timezone: "Africa/Johannesburg", flag: "za" },
+    { name: "Egypt", timezone: "Africa/Cairo", flag: "eg" },
+    { name: "Nigeria", timezone: "Africa/Lagos", flag: "ng" },
+    { name: "Kenya", timezone: "Africa/Nairobi", flag: "ke" },
+    { name: "Israel", timezone: "Asia/Jerusalem", flag: "il" },
+    { name: "Qatar", timezone: "Asia/Qatar", flag: "qa" },
+    { name: "Kuwait", timezone: "Asia/Kuwait", flag: "kw" },
+    { name: "Oman", timezone: "Asia/Muscat", flag: "om" },
+    { name: "Bahrain", timezone: "Asia/Bahrain", flag: "bh" },
+    { name: "Bangladesh", timezone: "Asia/Dhaka", flag: "bd" },
+    { name: "Sri Lanka", timezone: "Asia/Colombo", flag: "lk" },
+    { name: "Nepal", timezone: "Asia/Kathmandu", flag: "np" },
+    { name: "Afghanistan", timezone: "Asia/Kabul", flag: "af" },
+    { name: "Iran", timezone: "Asia/Tehran", flag: "ir" },
+    { name: "Iraq", timezone: "Asia/Baghdad", flag: "iq" },
+    { name: "Argentina", timezone: "America/Argentina/Buenos_Aires", flag: "ar" },
+    { name: "Chile", timezone: "America/Santiago", flag: "cl" },
+    { name: "Colombia", timezone: "America/Bogota", flag: "co" },
+    { name: "Peru", timezone: "America/Lima", flag: "pe" },
+    { name: "Venezuela", timezone: "America/Caracas", flag: "ve" }
 ];
 
-// DOM Elements
+// Popular time zones for the popular section
+const popularCountries = [
+    { name: "United Kingdom", timezone: "Europe/London", flag: "gb" },
+    { name: "United States (New York)", timezone: "America/New_York", flag: "us" },
+    { name: "Saudi Arabia", timezone: "Asia/Riyadh", flag: "sa" },
+    { name: "United Arab Emirates", timezone: "Asia/Dubai", flag: "ae" },
+    { name: "Australia (Sydney)", timezone: "Australia/Sydney", flag: "au" },
+    { name: "Japan", timezone: "Asia/Tokyo", flag: "jp" }
+];
+
+// ... rest of the JavaScript remains the same, just use the updated functions above
+
+// DOM Elements - NO CHANGES NEEDED HERE
 const sourceDropdown = document.getElementById('source-dropdown');
 const targetDropdown = document.getElementById('target-dropdown');
 const sourceOptions = document.getElementById('source-options');
@@ -40,7 +100,7 @@ const popularGrid = document.getElementById('popular-grid');
 let selectedSource = countries[0]; // Pakistan
 let selectedTarget = countries[1]; // UK
 
-// Initialize application
+// Initialize application - NO CHANGES NEEDED HERE
 function init() {
     populateTimeSelects();
     populateCountryOptions();
@@ -57,7 +117,7 @@ function init() {
     }, 60000);
 }
 
-// Populate time select inputs
+// Populate time select inputs - NO CHANGES NEEDED HERE
 function populateTimeSelects() {
     // Populate hours (1-12)
     for (let i = 1; i <= 12; i++) {
@@ -85,7 +145,7 @@ function populateTimeSelects() {
     sourceAmPm.value = now.getHours() >= 12 ? 'PM' : 'AM';
 }
 
-// Populate country dropdowns
+// Populate country dropdowns - NO CHANGES NEEDED HERE
 function populateCountryOptions() {
     // Source dropdown
     sourceOptions.innerHTML = '';
@@ -104,12 +164,11 @@ function populateCountryOptions() {
     updateDropdownDisplay();
 }
 
-// Create option element for dropdown
 function createOptionElement(country, type) {
     const div = document.createElement('div');
     div.className = 'option-item';
     div.innerHTML = `
-        <span class="flag">${country.flag}</span>
+        <span class="flag-icon flag-icon-${country.flag} flag-icon-css"></span>
         <span class="country-name">${country.name}</span>
     `;
     
@@ -129,19 +188,19 @@ function createOptionElement(country, type) {
     return div;
 }
 
-// Update dropdown display text
 function updateDropdownDisplay() {
     const sourceSelected = sourceDropdown.querySelector('.dropdown-selected');
     const targetSelected = targetDropdown.querySelector('.dropdown-selected');
     
-    sourceSelected.querySelector('.flag').textContent = selectedSource.flag;
+    // Clear previous flag
+    sourceSelected.querySelector('.flag').innerHTML = `<span class="flag-icon flag-icon-${selectedSource.flag} flag-icon-css"></span>`;
     sourceSelected.querySelector('.country-name').textContent = selectedSource.name;
     
-    targetSelected.querySelector('.flag').textContent = selectedTarget.flag;
+    targetSelected.querySelector('.flag').innerHTML = `<span class="flag-icon flag-icon-${selectedTarget.flag} flag-icon-css"></span>`;
     targetSelected.querySelector('.country-name').textContent = selectedTarget.name;
 }
 
-// Setup event listeners
+// Setup event listeners - NO CHANGES NEEDED HERE
 function setupEventListeners() {
     // Dropdown toggle
     sourceDropdown.addEventListener('click', (e) => {
@@ -180,13 +239,13 @@ function setupEventListeners() {
     swapButton.addEventListener('click', swapCountries);
 }
 
-// Close all dropdowns
+// Close all dropdowns - NO CHANGES NEEDED HERE
 function closeDropdowns() {
     sourceDropdown.classList.remove('active');
     targetDropdown.classList.remove('active');
 }
 
-// Filter countries in dropdown
+// Filter countries in dropdown - NO CHANGES NEEDED HERE
 function filterSourceCountries() {
     const searchTerm = sourceSearch.value.toLowerCase();
     const options = sourceOptions.querySelectorAll('.option-item');
@@ -207,13 +266,13 @@ function filterTargetCountries() {
     });
 }
 
-// Update current time displays
+// Update current time displays - NO CHANGES NEEDED HERE
 function updateCurrentTimes() {
     sourceCurrentTime.textContent = getCurrentTimeForTimezone(selectedSource.timezone);
     targetCurrentTime.textContent = getCurrentTimeForTimezone(selectedTarget.timezone);
 }
 
-// Get current time for a timezone
+// Get current time for a timezone - NO CHANGES NEEDED HERE
 function getCurrentTimeForTimezone(timezone) {
     try {
         return new Date().toLocaleTimeString('en-US', {
@@ -228,7 +287,7 @@ function getCurrentTimeForTimezone(timezone) {
     }
 }
 
-// Main conversion function
+// Main conversion function - NO CHANGES NEEDED HERE
 function updateConversion() {
     // Get source time
     let hour = parseInt(sourceHours.value);
@@ -266,7 +325,7 @@ function updateConversion() {
     updateAdditionalInfo(sourceDate, targetDate);
 }
 
-// Convert time between timezones
+// Convert time between timezones - NO CHANGES NEEDED HERE
 function convertTimeBetweenTimezones(date, sourceTimezone, targetTimezone) {
     try {
         // Get the time in target timezone
@@ -293,7 +352,7 @@ function convertTimeBetweenTimezones(date, sourceTimezone, targetTimezone) {
     }
 }
 
-// Calculate time difference between timezones
+// Calculate time difference between timezones - NO CHANGES NEEDED HERE
 function calculateTimeDifference(sourceTimezone, targetTimezone) {
     try {
         const now = new Date();
@@ -324,7 +383,7 @@ function calculateTimeDifference(sourceTimezone, targetTimezone) {
     }
 }
 
-// Get timezone offset in minutes
+// Get timezone offset in minutes - NO CHANGES NEEDED HERE
 function getTimezoneOffset(timezone) {
     try {
         const date = new Date();
@@ -336,7 +395,7 @@ function getTimezoneOffset(timezone) {
     }
 }
 
-// Format time for display
+// Format time for display - NO CHANGES NEEDED HERE
 function formatTimeForDisplay(date) {
     let hours = date.getHours();
     const minutes = date.getMinutes();
@@ -348,7 +407,7 @@ function formatTimeForDisplay(date) {
     return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')} ${ampm}`;
 }
 
-// Update additional information
+// Update additional information - NO CHANGES NEEDED HERE
 function updateAdditionalInfo(sourceDate, targetDate) {
     // Date status
     if (sourceDate.toDateString() === targetDate.toDateString()) {
@@ -368,7 +427,7 @@ function updateAdditionalInfo(sourceDate, targetDate) {
     }
 }
 
-// Swap countries
+// Swap countries - NO CHANGES NEEDED HERE
 function swapCountries() {
     [selectedSource, selectedTarget] = [selectedTarget, selectedSource];
     updateDropdownDisplay();
@@ -377,18 +436,8 @@ function swapCountries() {
     updatePopularTimes();
 }
 
-// Update popular time zones section
 function updatePopularTimes() {
     popularGrid.innerHTML = '';
-    
-    const popularCountries = [
-        { name: "United Kingdom", timezone: "Europe/London", flag: "🇬🇧" },
-        { name: "United States (New York)", timezone: "America/New_York", flag: "🇺🇸" },
-        { name: "Saudi Arabia", timezone: "Asia/Riyadh", flag: "🇸🇦" },
-        { name: "United Arab Emirates", timezone: "Asia/Dubai", flag: "🇦🇪" },
-        { name: "Australia (Sydney)", timezone: "Australia/Sydney", flag: "🇦🇺" },
-        { name: "Japan", timezone: "Asia/Tokyo", flag: "🇯🇵" }
-    ];
     
     popularCountries.forEach(country => {
         const now = new Date();
@@ -417,15 +466,16 @@ function updatePopularTimes() {
         item.className = 'popular-item';
         item.innerHTML = `
             <div class="popular-header">
-                <div class="popular-flag">${country.flag}</div>
+                <div class="popular-flag">
+                    <span class="flag-icon flag-icon-${country.flag} flag-icon-css"></span>
+                </div>
                 <div class="popular-country">
                     <h4>${country.name}</h4>
                     <p>Current Local Time</p>
                 </div>
             </div>
             <div class="popular-time">${currentTime}</div>
-           
-              
+          
             </div>
         `;
         
@@ -433,5 +483,5 @@ function updatePopularTimes() {
     });
 }
 
-// Initialize the application
+// Initialize the application - NO CHANGES NEEDED HERE
 document.addEventListener('DOMContentLoaded', init);
