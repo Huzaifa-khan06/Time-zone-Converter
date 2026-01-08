@@ -602,3 +602,59 @@ body {
         padding: 20px;
     }
 }
+/* Add these styles to your CSS */
+
+/* Flag icon styling */
+.flag-icon {
+    width: 24px;
+    height: 18px;
+    border-radius: 2px;
+    margin-right: 10px;
+    object-fit: cover;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-selected .flag-icon {
+    width: 28px;
+    height: 21px;
+}
+
+.option-item .flag-icon {
+    width: 22px;
+    height: 16px;
+}
+
+.popular-flag .flag-icon {
+    width: 40px;
+    height: 30px;
+    border-radius: 4px;
+}
+
+/* Alternative: Using flag-icon-css classes */
+.flag-icon-css {
+    margin-right: 10px;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-selected .flag-icon-css {
+    width: 28px;
+    height: 21px;
+    font-size: 28px;
+    line-height: 21px;
+}
+
+.option-item .flag-icon-css {
+    width: 22px;
+    height: 16px;
+    font-size: 22px;
+    line-height: 16px;
+}
+
+.popular-flag .flag-icon-css {
+    width: 40px;
+    height: 30px;
+    font-size: 40px;
+    line-height: 30px;
+    border-radius: 4px;
+}
